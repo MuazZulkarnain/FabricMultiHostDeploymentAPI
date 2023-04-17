@@ -2,32 +2,19 @@
 
 This API allows you to trigger smart contract in the PRSB blockchain nodes
 
-The API is available at `http://117.53.155.107:4000`
+The API is available at `http://117.53.155.107:4000/channels/mychannel/chaincodes/prsb`
+
+Authorization: Bearer Token
+{{Token}} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3NDY1OTksInVzZXJuYW1lIjoiVXNlcjM1Iiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE2ODE3MTA1OTl9.goJ4rrJmjPF7n-9FJt-0DbmTgJlt4gpZItk6tzEvk2I
 
 ## Endpoints
 
-- [Status](#Status)
-- [Products](#Products)
+- [Register](#Register)
+- [Create Token](#Products)
   - [Get all products](#Get-all-products)
   - [Get a product](#Get-a-product)
-- [Cart](#Cart)
-  - [Get a cart](#Get-a-cart)
-  - [Get cart items](#Get-cart-items)
-  - [Create a new cart](#Create-a-new-cart)
-  - [Add an item to cart](#Add-an-item-to-cart)
-  - [Modify an item in the cart](#Modify-an-item-in-the-cart)
-  - [Replace an item in the cart](#Replace-an-item-in-the-cart)
-  - [Delete an item in the cart](#Delete-an-item-in-the-cart)
-- [Orders](#Orders)
-  - [Get all orders](#Get-all-orders)
-  - [Get a single order](#Get-a-single-order)
-  - [Create a new order](#Create-a-new-order)
-  - [Update an order](#Update-an-order)
-  - [Delete an order](#Delete-an-order)
-- [API Authentication](#API-Authentication)
-  - [Register a new API client](#Register-a-new-API-client)
 
-## Status
+## Register
 
 **`GET /status`**
 
