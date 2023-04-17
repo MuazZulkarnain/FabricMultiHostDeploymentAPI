@@ -1,8 +1,10 @@
-# PRSB-Hyperledger-Fabric-Rest-API
+# Simple Grocery Store API
 
-This API allows you to trigger smart contract in the PRSB blockchain nodes
+This API allows you to place a grocery order which will be ready for pick-up in the store.
 
-The API is available at `http://117.53.155.107:4000`
+The API is available at `https://simple-grocery-store-api.glitch.me`
+
+Alternative URL: `http://simple-grocery-store-api.online/` (HTTP only!)
 
 ## Endpoints
 
