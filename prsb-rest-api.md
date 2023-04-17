@@ -11,8 +11,13 @@ Authorization: Bearer Token
 
 - [Register](#Register)
 - [Create Token](#Products)
-  - [Get all products](#Get-all-products)
-  - [Get a product](#Get-a-product)
+- [Generate Token](#Products)
+- [Change Token Owner](#Products)
+- [Update Token Volume](#Products)
+- [Transfer Token](#Products)
+- [Retire Token](#Products)
+  - [Retire All Token](#Get-all-products)
+  - [Retire Partial Token](#Get-a-product)
 
 ## Register
 
