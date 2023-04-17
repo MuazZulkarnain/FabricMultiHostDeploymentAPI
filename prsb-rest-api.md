@@ -10,14 +10,15 @@ Authorization: Bearer Token
 ## Endpoints
 
 - [Register](#Register)
-- [Create Token](#Products)
-- [Generate Token](#Products)
-- [Change Token Owner](#Products)
-- [Update Token Volume](#Products)
-- [Transfer Token](#Products)
-- [Retire Token](#Products)
-  - [Retire All Token](#Get-all-products)
-  - [Retire Partial Token](#Get-a-product)
+- [Create Token](#Create)
+- [Generate Token](#Generate)
+- [Modifying Token Properties](#Properties)
+- [Change Token Owner](#Owner)
+- [Update Token Volume](#Volume)
+- [Transfer Token](#Transfer)
+- [Retire Token](#Retire)
+  - [Retire All Token](#Retire-all)
+  - [Retire Partial Token](#Retire-partial)
 
 ## Register
 
