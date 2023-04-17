@@ -21,7 +21,6 @@ Authorization: Bearer Token
   - [Retire Partial Token](#Retire-partial)
 
 ## Token
-
 ### Get a product
 
 **`GET /products/:productId`**
