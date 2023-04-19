@@ -21,6 +21,36 @@ Authorization: Bearer Token
   - [Retire Partial Token](#Retire-partial)
 
 ## Token
+### Create New Token
+
+**`POST `**
+
+**Parameters**
+
+| Name            | Type    | In    | Required | Description                                      |
+| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
+| `fcn`           | string  | body  | Yes      | Specifies the function you want to use           |
+| `peers`         | string  | body  | Yes      | endorser peer involved in the transaction        |
+| `chaincodeName` | string  | body  | Yes      | Name of the chaincode `prsb`                     |
+| `channelName`   | string  | body  | Yes      | Name of the channel `mychannel`                  |
+| `args`          | array   | body  | Yes      | Required to make the function works              |
+
+**Status codes**
+
+| Status code | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| 20 OK       | Indicates that the  |
+
+Example response body:
+
+```
+{
+   "created": true,
+   "cartId": "bx0-ycNjqIm5IvufuuZ09"
+}
+```
+
+
 ### Get a product
 
 **`GET /products/:productId`**
