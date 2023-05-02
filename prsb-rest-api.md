@@ -6,7 +6,7 @@ The API is available at `http://117.53.155.107:4000/channels/mychannel/chaincode
 
 ## Endpoints
 
-- [Generating Token](#Generating Token)
+- [Generating Token](#Generating-Token)
 - [Transfer Token](#Transfer)
 - [Retire Token](#Retire)
 - [Query Token](#Query)
