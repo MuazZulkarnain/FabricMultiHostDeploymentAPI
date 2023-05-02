@@ -16,7 +16,7 @@ The API is available at `http://117.53.155.107:4000/channels/mychannel/chaincode
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWRtaW4xMCIsIm9yZ05hbWUiOiJPcmcxIiwiaWF0IjoxNjgyOTk1MDE0fQ.fBAhzmd5VZ2HmBcRRxzasKu-7rDLqLM_LbDWA1W3iAg
 
 ## Token
-### Create New Token
+### Generating Token
 
 **`POST `**
 
