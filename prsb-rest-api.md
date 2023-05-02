@@ -71,7 +71,7 @@ Example response body:
 | Status code      | Description                                            |
 | -----------      | ------------------------------------------------------ |
 | 201 OK           | Successfully transferred the tokens                    |
-| 400 Bad Request  | Function name is incorrect                             |
+| 400 Bad Request  | Function name is incorrect or ProjectID doesnt exist   |
 | 502 Bad Gateway  | Will need to retrigger the request                     |
 
 Example request body:
@@ -145,26 +145,26 @@ Returns the current token values
 
 **Parameters**
 
-| Name            | Type    | In    | Required | Description                                      |
-| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| fcn             | string  | query | Yes      | Must be exactly 'queryToken'                     |
-| args            | array   | query | Yes      | The specific token that wants to be queried      |
+| Name            | Type    | In    | Required | Description   |
+| --------------- | ------- | ----- | -------- | ------------- |
+| fcn             | string  | query | Yes      | 'queryToken'  |
+| args            | array   | query | Yes      | ["ProjectID"] |
 
 **Status codes**
 
-| Status code      | Description                                            |
-| -----------      | ------------------------------------------------------ |
-| 200 OK           | Successfully queried the token                         |
-| 400 Bad Request  | Either function name or token id is incorrect          |
-| 502 Bad Gateway  | Will need to retrigger the request                     |
-
+| Status code      | Description                                    |
+| -----------      | ---------------------------------------------- |
+| 200 OK           | Successfully queried the token                 |
+| 400 Bad Request  | Either function name or ProjectID is incorrect |
+| 502 Bad Gateway  | Will need to retrigger the request             |
+ 
 Example request parameters:
 
 ```
-| Key              | Values                                                 |
-| -----------      | ------------------------------------------------------ |
-| fcn              | queryToken                                             |
-| args             | ["TOKEN1"]                                             |
+| Key    | Values     |
+| ------ | ---------- |
+| fcn    | queryToken |
+| args   | ["TOKEN1"] |
 ```
 
 Example response body:
@@ -192,39 +192,58 @@ Returns the current token values
 
 **Parameters**
 
-| Name            | Type    | In    | Required | Description                                      |
-| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| fcn             | string  | query | Yes      | Must be exactly 'queryToken'                     |
-| args            | array   | query | Yes      | The specific token that wants to be queried      |
+| Name            | Type    | In    | Required | Description         |
+| --------------- | ------- | ----- | -------- | ------------------- |
+| fcn             | string  | query | Yes      | 'queryTokenHistory' |
+| args            | array   | query | Yes      | ["ProjectID"]       |
 
 **Status codes**
 
-| Status code      | Description                                            |
-| -----------      | ------------------------------------------------------ |
-| 200 OK           | Successfully queried the token                         |
-| 400 Bad Request  | Either function name or token id is incorrect          |
-| 502 Bad Gateway  | Will need to retrigger the request                     |
+| Status code      | Description                                    |
+| -----------      | ---------------------------------------------- |
+| 200 OK           | Successfully queried the token history         |
+| 400 Bad Request  | Either function name or ProjectID is incorrect |
+| 502 Bad Gateway  | Will need to retrigger the request             |
 
 Example request parameters:
 
 ```
-| Key              | Values                                                 |
-| -----------      | ------------------------------------------------------ |
-| fcn              | queryToken                                             |
-| args             | ["TOKEN1"]                                             |
+| Key              | Values            |
+| -----------      | ----------------- |
+| fcn              | queryTokenHistory |
+| args             | ["TOKEN1"]        |
 ```
 
 Example response body:
 
 ```
 {
-    "result": {
-        "amount": 45,
-        "owner": "PRSB-C",
-        "source": "PRSB-D",
-        "conversion_rate": 0.999,
-        "past_operation": "Token Retired"
-    },
+    "result": [
+        {
+            "TxId": "becd001f8ab3762d440dce001fd8c77353d54e8ca88fa5c0c302d18e926c5b77",
+            "Value": {
+                "amount": 30,
+                "owner": "PRSB-C",
+                "source": "PRSB-D",
+                "conversion_rate": 0.999,
+                "past_operation": "Token Generated"
+            },
+            "Timestamp": "2023-05-02 04:00:12.978 +0000 UTC",
+            "IsDelete": "false"
+        },
+        {
+            "TxId": "00580e7fa7a9269ca80311bc9326eb0e5d624d0ad810e157dda0523034c4b26e",
+            "Value": {
+                "amount": 10,
+                "owner": "PRSB-C",
+                "source": "PRSB-D",
+                "conversion_rate": 0.999,
+                "past_operation": "Token Generated"
+            },
+            "Timestamp": "2023-05-02 04:00:03.409 +0000 UTC",
+            "IsDelete": "false"
+        }
+    ],
     "error": null,
     "errorData": null
 }
