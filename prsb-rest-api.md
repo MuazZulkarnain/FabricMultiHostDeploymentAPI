@@ -61,16 +61,16 @@ Example response body:
 
 **Parameters**
 
-| Name            | Type    | In    | Required | Description                                      |
-| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| `fcn`           | string  | body  | Yes      | Specifies the function you want to use           |
-| `args`          | array   | body  | Yes      | Required to make the function works              |
+| Name            | Type    | In    | Required | Description                                                 |
+| --------------- | ------- | ----- | -------- | ----------------------------------------------------------- |
+| `fcn`           | string  | body  | Yes      | "transferToken"                                             |
+| `args`          | array   | body  | Yes      | ["RequestedProjectID", "TransferredProjectID", tokenAmount] |
 
 **Status codes**
 
 | Status code      | Description                                            |
 | -----------      | ------------------------------------------------------ |
-| 201 OK           | Successfully generated the tokens                      |
+| 201 OK           | Successfully transferred the tokens                    |
 | 400 Bad Request  | Function name is incorrect                             |
 | 502 Bad Gateway  | Will need to retrigger the request                     |
 
@@ -78,8 +78,8 @@ Example request body:
 
 ```
 {
-    "fcn": "generateToken",
-   "args": ["TOKEN11",10,"PRSB-C","PRSB-D",0.999]
+    "fcn": "transferToken",
+   "args": ["TOKEN9","TOKEN11",20.1]
 }
 ```
 
@@ -88,7 +88,48 @@ Example response body:
 ```
 {
     "result": {
-        "message": "Successfully generated 10 tokens for TOKEN11!",
+        "message": "Successfully transferred 20.1 tokens to TOKEN11!",
+        "TxId": "8ebd94638299fbc21de209a0571624fd210c0c455b2355118fff0ff3e638cf85"
+    },
+    "error": null,
+    "errorData": null
+}
+```
+
+
+## Retire Token
+**`POST `**
+
+**Parameters**
+
+| Name            | Type    | In    | Required | Description                  |
+| --------------- | ------- | ----- | -------- | ---------------------------- |
+| `fcn`           | string  | body  | Yes      | "retirePartialToken"         |
+| `args`          | array   | body  | Yes      | ["ProjectID", tokenAmount]   |
+
+**Status codes**
+
+| Status code      | Description                                          |
+| -----------      | ---------------------------------------------------- |
+| 201 OK           | Successfully retired the tokens                      |
+| 400 Bad Request  | Function name is incorrect or ProjectID doesnt exist |
+| 502 Bad Gateway  | Will need to retrigger the request                   |
+
+Example request body:
+
+```
+{
+    "fcn": "retirePartialToken",
+   "args": ["TOKEN11", 2.5]
+}
+```
+
+Example response body:
+
+```
+{
+    "result": {
+        "message": "Successfully retired 2.5 tokens!",
         "TxId": "8ebd94638299fbc21de209a0571624fd210c0c455b2355118fff0ff3e638cf85"
     },
     "error": null,
@@ -113,7 +154,54 @@ Returns the current token values
 
 | Status code      | Description                                            |
 | -----------      | ------------------------------------------------------ |
-| 200 OK           | Successfully generated the tokens                      |
+| 200 OK           | Successfully queried the token                         |
+| 400 Bad Request  | Either function name or token id is incorrect          |
+| 502 Bad Gateway  | Will need to retrigger the request                     |
+
+Example request parameters:
+
+```
+| Key              | Values                                                 |
+| -----------      | ------------------------------------------------------ |
+| fcn              | queryToken                                             |
+| args             | ["TOKEN1"]                                             |
+```
+
+Example response body:
+
+```
+{
+    "result": {
+        "amount": 45,
+        "owner": "PRSB-C",
+        "source": "PRSB-D",
+        "conversion_rate": 0.999,
+        "past_operation": "Token Retired"
+    },
+    "error": null,
+    "errorData": null
+}
+```
+
+
+## Query Token History
+
+**`GET `**
+
+Returns the current token values
+
+**Parameters**
+
+| Name            | Type    | In    | Required | Description                                      |
+| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
+| fcn             | string  | query | Yes      | Must be exactly 'queryToken'                     |
+| args            | array   | query | Yes      | The specific token that wants to be queried      |
+
+**Status codes**
+
+| Status code      | Description                                            |
+| -----------      | ------------------------------------------------------ |
+| 200 OK           | Successfully queried the token                         |
 | 400 Bad Request  | Either function name or token id is incorrect          |
 | 502 Bad Gateway  | Will need to retrigger the request                     |
 
