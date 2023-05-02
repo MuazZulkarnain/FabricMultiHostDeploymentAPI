@@ -25,23 +25,26 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWR
 | Name            | Type    | In    | Required | Description                                      |
 | --------------- | ------- | ----- | -------- | ------------------------------------------------ |
 | `fcn`           | string  | body  | Yes      | Specifies the function you want to use           |
-| `peers`         | string  | body  | Yes      | endorser peer involved in the transaction        |
-| `chaincodeName` | string  | body  | Yes      | Name of the chaincode `prsb`                     |
-| `channelName`   | string  | body  | Yes      | Name of the channel `mychannel`                  |
 | `args`          | array   | body  | Yes      | Required to make the function works              |
 
 **Status codes**
 
-| Status code | Description                                            |
-| ----------- | ------------------------------------------------------ |
-| 20 OK       | Indicates that the  |
+| Status code      | Description                                            |
+| -----------      | ------------------------------------------------------ |
+| 201 OK           | Successfully generated the tokens                      |
+| 400 Bad Request  | Function name is incorrect                             |
+| 502 Bad Gateway  | Will need to retrigger the request                     |
 
 Example response body:
 
 ```
 {
-   "created": true,
-   "cartId": "bx0-ycNjqIm5IvufuuZ09"
+    "result": {
+        "message": "Successfully generated 10 tokens for TOKEN11!",
+        "TxId": "8ebd94638299fbc21de209a0571624fd210c0c455b2355118fff0ff3e638cf85"
+    },
+    "error": null,
+    "errorData": null
 }
 ```
 
