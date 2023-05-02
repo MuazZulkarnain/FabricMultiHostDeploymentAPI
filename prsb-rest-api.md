@@ -68,8 +68,8 @@ Returns the current token values
 
 | Name            | Type    | In    | Required | Description                                      |
 | --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| `fcn`           | string  | query | Yes      | Must be exactly 'queryToken                      |
-| `args`          | array   | query | Yes      | The specific token that wants to be queried     |
+| fcn             | string  | query | Yes      | Must be exactly 'queryToken'                     |
+| args            | array   | query | Yes      | The specific token that wants to be queried      |
 
 **Status codes**
 
@@ -78,3 +78,28 @@ Returns the current token values
 | 200 OK           | Successfully generated the tokens                      |
 | 400 Bad Request  | Either function name or token id is incorrect          |
 | 502 Bad Gateway  | Will need to retrigger the request                     |
+
+Example request parameters:
+
+```
+| Key              | Values                                                 |
+| -----------      | ------------------------------------------------------ |
+| fcn              | queryToken                                             |
+| args             | ["TOKEN1"]                                             |
+```
+
+Example response body:
+
+```
+{
+    "result": {
+        "amount": 45,
+        "owner": "PRSB-C",
+        "source": "PRSB-D",
+        "conversion_rate": 0.999,
+        "past_operation": "Token Retired"
+    },
+    "error": null,
+    "errorData": null
+}
+```
