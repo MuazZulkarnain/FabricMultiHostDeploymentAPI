@@ -35,6 +35,15 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWR
 | 400 Bad Request  | Function name is incorrect                             |
 | 502 Bad Gateway  | Will need to retrigger the request                     |
 
+Example request body:
+
+```
+{
+    "fcn": "generateToken",
+   "args": ["TOKEN11",10,"PRSB-C","PRSB-D",0.999]
+}
+```
+
 Example response body:
 
 ```
@@ -49,22 +58,23 @@ Example response body:
 ```
 
 
-### Get a product
+### Query Token
 
-**`GET /products/:productId`**
+**`GET `**
 
-Returns a single product from the inventory.
+Returns the current token values
 
 **Parameters**
 
 | Name            | Type    | In    | Required | Description                                      |
 | --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| `productId`     | integer | path  | Yes      | Specifies the product's id you wish to retrieve. |
-| `product-label` | boolean | query | No       | Returns the product label in PDF format.         |
+| `fcn`           | string  | query | Yes      | Must be exactly 'queryToken                      |
+| `args`          | array   | query | Yes      | The specific token that wants to be queried     |
 
 **Status codes**
 
-| Status code   | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| 200 OK        | Indicates a successful response.                          |
-| 404 Not found | Indicates that there is no product with the specified id. |
+| Status code      | Description                                            |
+| -----------      | ------------------------------------------------------ |
+| 200 OK           | Successfully generated the tokens                      |
+| 400 Bad Request  | Either function name or token id is incorrect          |
+| 502 Bad Gateway  | Will need to retrigger the request                     |
