@@ -4,9 +4,6 @@ This API allows you to trigger smart contract in the PRSB blockchain nodes
 
 The API is available at `http://117.53.155.107:4000/channels/mychannel/chaincodes/prsb`
 
-Authorization: Bearer Token
-{{Token}} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOm51bGwsInVzZXJuYW1lIjoiQWRtaW4iLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTY4MjkwNjA5N30.zSWEGk2Ft_rDeNT-TInEKpLQYfaMkp27pEzsZ0hbJxc
-
 ## Endpoints
 
 - [Generating Token](#Token)
@@ -14,6 +11,9 @@ Authorization: Bearer Token
 - [Retire Token](#Retire)
 - [Query Token](#Query)
 - [Query Token History](#History)
+
+## Bearer Token
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWRtaW4xMCIsIm9yZ05hbWUiOiJPcmcxIiwiaWF0IjoxNjgyOTk1MDE0fQ.fBAhzmd5VZ2HmBcRRxzasKu-7rDLqLM_LbDWA1W3iAg
 
 ## Token
 ### Create New Token
