@@ -20,6 +20,47 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWR
 
 **Parameters**
 
+| Name            | Type    | In    | Required | Description                                                     |
+| --------------- | ------- | ----- | -------- | --------------------------------------------------------------- |
+| `fcn`           | string  | body  | Yes      | "generateToken"                                                 |
+| `args`          | array   | body  | Yes      | ["ProjectID", tokenAmount, "Owner", "Source", conversionRate]   |
+
+**Status codes**
+
+| Status code      | Description                                            |
+| -----------      | ------------------------------------------------------ |
+| 201 OK           | Successfully generated the tokens                      |
+| 400 Bad Request  | Function name is incorrect                             |
+| 502 Bad Gateway  | Will need to retrigger the request                     |
+
+Example request body:
+
+```
+{
+    "fcn": "generateToken",
+   "args": ["TOKEN11",10,"PRSB-C","PRSB-D",0.999]
+}
+```
+
+Example response body:
+
+```
+{
+    "result": {
+        "message": "Successfully generated 10 tokens for TOKEN11!",
+        "TxId": "8ebd94638299fbc21de209a0571624fd210c0c455b2355118fff0ff3e638cf85"
+    },
+    "error": null,
+    "errorData": null
+}
+```
+
+
+## Transfer Token
+**`POST `**
+
+**Parameters**
+
 | Name            | Type    | In    | Required | Description                                      |
 | --------------- | ------- | ----- | -------- | ------------------------------------------------ |
 | `fcn`           | string  | body  | Yes      | Specifies the function you want to use           |
@@ -55,8 +96,7 @@ Example response body:
 }
 ```
 
-
-### Query Token
+## Query Token
 
 **`GET `**
 
