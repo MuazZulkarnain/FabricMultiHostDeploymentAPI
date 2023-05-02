@@ -10,15 +10,10 @@ Authorization: Bearer Token
 ## Endpoints
 
 - [Generating Token](#Token)
-  - [Create New Token](#Create)
-  - [Generate New/Old Token](#Generate)
-- [Modifying Token Properties](#Properties)
-  - [Change Token Owner](#Owner)
-  - [Update Token Volume](#Volume)
 - [Transfer Token](#Transfer)
 - [Retire Token](#Retire)
-  - [Retire All Token](#Retire-all)
-  - [Retire Partial Token](#Retire-partial)
+- [Query Token](#Query)
+- [Query Token History](#History)
 
 ## Token
 ### Create New Token
