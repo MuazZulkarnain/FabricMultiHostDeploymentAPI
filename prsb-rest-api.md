@@ -7,10 +7,10 @@ The API is available at `http://117.53.155.107:4000/channels/mychannel/chaincode
 ## Endpoints
 
 - [Generating Token](#Generating-Token)
-- [Transfer Token](#Transfer)
-- [Retire Token](#Retire)
-- [Query Token](#Query)
-- [Query Token History](#History)
+- [Transfer Token](#Transfer-Token)
+- [Retire Token](#Retire-Token)
+- [Query Token](#Query-Token)
+- [Query Token History](#Query-Token-History)
 
 ## Bearer Token
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1NDcwMTQsInVzZXJuYW1lIjoiYWRtaW4xMCIsIm9yZ05hbWUiOiJPcmcxIiwiaWF0IjoxNjgyOTk1MDE0fQ.fBAhzmd5VZ2HmBcRRxzasKu-7rDLqLM_LbDWA1W3iAg
